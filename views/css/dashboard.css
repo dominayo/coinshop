@@ -1,0 +1,52 @@
+header {
+	width: calc(100% - 180px);
+	height: 50px;
+	margin-left: 180px;
+	background-color: gray;
+	position: fixed;
+	text-align: center;
+}
+
+.bell {
+	width:	30px !important;
+	font-size: 50px !important;
+	user-select: none;
+	color: yellow !important;
+}
+
+.bell:hover {
+	cursor: pointer !important;
+	background-color: gray !important;
+}
+
+.notification {
+	width: max-content;
+	float: right !important;
+	margin-right: 100px;
+}
+
+.chat_list:hover {
+	cursor: pointer;
+}
+
+.form-control-file {
+	width: 40% !important;
+	margin: auto !important;
+}
+
+.crypto-wallets {
+	text-align: center !important;
+}
+
+.crypto-wallets * {
+	padding: 20px;
+}
+
+.transaction-control__wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.transaction-control__wrapper #abort-widthraw {
+	margin: 8px 0px 0px 0px;
+}

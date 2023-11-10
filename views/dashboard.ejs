@@ -1,0 +1,461 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Dashboard</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+	<link rel="stylesheet" href="./css/dashboard.css">
+	<link rel="stylesheet" href="./css/chat.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.0/dist/css/adminlte.min.css">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+
+<body>
+	<!-- Main Sidebar Container -->
+	<header>
+		<div class="notifications">
+			<div class="notification__wrapper">
+				<div class="notification">
+					<i class="fas fa-bell list-group-item-action bell" id="list-dispute-list" data-bs-toggle="list" href="#dispute" role="tab" aria-controls="dispute"></i>
+					<span class="badge bg-secondary notification-amount" id="bell-counter">0</span>
+				</div>
+			</div>
+		</div>
+		<!-- <button type="button" class="btn btn-primary" style="float: right; margin-right: 40px; margin-top: 6px;"> -->
+		
+		<div></div>
+	</header>
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="position: fixed; max-width: 180px">
+		<div class="main-sidebar__wrapper">
+			<div class="list-group" id="list-tab" role="tablist" style="border-radius:0 !important">
+				<a class="list-group-item list-group-item-dark list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-users" role="tab" aria-controls="users" style="border-radius:0 !important">Users</a>
+				<a class="list-group-item list-group-item-dark list-group-item-action" id="list-advert-list" data-bs-toggle="list" href="#list-advert" role="tab" aria-controls="advert" style="border-radius:0 !important">Adverts</a>
+				<a class="list-group-item list-group-item-dark list-group-item-action" id="list-deals-list" data-bs-toggle="list" href="#list-deals" role="tab" aria-controls="deals" style="border-radius:0 !important">Deals</a>
+				<a class="list-group-item list-group-item-dark list-group-item-action" id="list-transactions-list" data-bs-toggle="list" href="#list-transactions" role="tab" aria-controls="transactions" style="border-radius:0 !important">Transactions</a>
+				<a class="list-group-item list-group-item-dark list-group-item-action" id="list-commission-list" data-bs-toggle="list" href="#list-commission" role="tab" aria-controls="commissions" style="border-radius:0 !important">Commissions</a>
+				<a class="list-group-item list-group-item-dark list-group-item-action" id="list-dispute-list" data-bs-toggle="list" href="#dispute" role="tab" aria-controls="dispute" style="border-radius:0 !important">Disputes</a>
+				<a class="list-group-item list-group-item-dark list-group-item-action" id="list-crypto-wallets-list" data-bs-toggle="list" href="#list-crypto-wallets" role="tab" aria-controls="crypto-wallets" style="border-radius:0 !important">Crypto Wallets</a>
+				<a class="list-group-item list-group-item-dark list-group-item-action" id="list-widthraw-list" data-bs-toggle="list" href="#list-widthraw" role="tab" aria-controls="widthraw" style="border-radius:0 !important">Widthraw</a>
+			</div>
+		</div>
+	</aside>
+
+	<section class="content-wrapper" style="margin-left: 180px !important; padding-top: 50px">
+		<div class="container-fluid">
+			<div class="container justify-content-center" style="text-align: center;">
+				<div class="tab-content" id="nav-tabContent">
+					<div class="tab-pane fade show active" id="list-users" role="tabpanel" aria-labelledby="list-home-list">
+						<div id="list-users__wrapper">
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">Email</th>
+										<th scope="col">Name</th>
+										<th scope="col">Second Name</th>
+										<th scope="col">Role</th>
+									</tr>
+								</thead>
+								<tbody>
+								<% users.forEach(function(user){ %>
+									<tr>
+										<td><%= user.email%></td>
+										<td><%= user.name%></td>
+										<td><%= user.secondName%></td>
+										<td><%= user.role%></td>
+									</tr>
+								<% }); %>
+								</tbody>
+							</table>
+							
+						</div>
+						<div id="pagination">
+							<div class="container justify-content-center">
+								<nav aria-label="Page navigation justify-content-center">
+									<ul class="pagination justify-content-center" data-target="list-users" data-url="users">
+										<% userPages.forEach(function(page) {%>
+											<% if (page === 1) { %> 
+												<li class="page-item active"><a class="page-link" href="#"><%= page %></a></li>
+											<% } %>
+											<% if (page !== 1) { %> 
+												<li class="page-item"><a class="page-link" href="#"><%= page %></a></li>
+											<% } %>
+										<% }); %>
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="list-advert" role="tabpanel" aria-labelledby="list-advert-list">
+						<div id="list-advert__wrapper">
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">Email</th>
+										<th scope="col">Type</th>
+										<th scope="col">Сrypto Currency</th>
+										<th scope="col">Direction</th>
+										<th scope="col">Fixed Rate</th>
+										<th scope="col">Exchange Rates</th>
+										<th scope="col">Spread</th>
+										<th scope="col">Min Limit</th>
+										<th scope="col">Max Limit</th>
+										<th scope="col">Comments</th>
+									</tr>
+								</thead>
+								<tbody>
+									<% adverts.forEach(function(advert){ %>
+										<tr>
+											<td><%= advert.email%></td>
+											<td><%= advert.type%></td>
+											<td><%= advert.cryptoCurrency%></td>
+											<td><%= advert.direction%></td>
+											<td><%= advert.isFixedRate%></td>
+											<td><%= advert.exchangeRate%></td>
+											<td><%= advert.spread%></td>
+											<td><%= advert.minLimit%></td>
+											<td><%= advert.maxLimit%></td>
+											<td><%= advert.comments%></td>
+										</tr>
+									<% }); %>
+								</tbody>
+							</table>
+						</div>
+						<div id="pagination">
+							<div class="container justify-content-center">
+								<nav aria-label="Page navigation justify-content-center">
+									<ul class="pagination justify-content-center" data-target="list-advert" data-url="adverts">
+										<% advertPages.forEach(function(page) {%>
+											<% if (page === 1) { %> 
+												<li class="page-item active"><a class="page-link" href="#"><%= page %></a></li>
+											<% } %>
+											<% if (page !== 1) { %> 
+												<li class="page-item"><a class="page-link" href="#"><%= page %></a></li>
+											<% } %>
+										<% }); %>
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="list-deals" role="tabpanel" aria-labelledby="list-deals-list">
+						<div id="list-deals__wrapper">
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">status</th>
+										<th scope="col">advertId</th>
+										<th scope="col">amount</th>
+										<th scope="col">owner</th>
+										<th scope="col">customerId</th>
+										<th scope="col">type</th>
+									</tr>
+								</thead>
+								<tbody>
+									<% deals.forEach(function(deal){ %>
+										<tr>
+											<td><%= deal.status%></td>
+											<td><%= deal.advertId%></td>
+											<td><%= deal.amount%></td>
+											<td><%= deal.owner%></td>
+											<td><%= deal.customerId%></td>
+											<td><%= deal.type%></td>
+										</tr>
+									<% }); %>
+								</tbody>
+							</table>
+						</div>
+						<div id="pagination">
+							<div class="container justify-content-center">
+								<nav aria-label="Page navigation justify-content-center">
+									<ul class="pagination justify-content-center" data-target="list-deals" data-url="deals">
+										<% dealPages.forEach(function(page) {%>
+											<% if (page === 1) { %> 
+												<li class="page-item active"><a class="page-link" href="#"><%= page %></a></li>
+											<% } %>
+											<% if (page !== 1) { %> 
+												<li class="page-item"><a class="page-link" href="#"><%= page %></a></li>
+											<% } %>
+										<% }); %>
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="list-transactions" role="tabpanel" aria-labelledby="list-transactions">
+						<div id="list-transactions__wrapper">
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">id</th>
+										<th scope="col">Status</th>
+										<th scope="col">Email</th>
+										<th scope="col">Transaction Type</th>
+										<th scope="col">Crypto Currency</th>
+										<th scope="col">Amount</th>
+									</tr>
+								</thead>
+								<tbody>
+									<% cryptoTransactions.forEach(function(cryptoTransaction){ %>
+										<tr>
+											<td><%= cryptoTransaction._id%></td>
+											<td><%= cryptoTransaction.status%></td>
+											<td><%= cryptoTransaction.email%></td>
+											<td><%= cryptoTransaction.transactionType%></td>
+											<td><%= cryptoTransaction.cryptoCurrency%></td>
+											<td><%= cryptoTransaction.amount%></td>
+										</tr>
+									<% }); %>
+								</tbody>
+							</table>
+						</div>
+						<div id="pagination">
+							<div class="container justify-content-center">
+								<nav aria-label="Page navigation justify-content-center">
+									<ul class="pagination justify-content-center" data-target="list-transactions" data-url="transactions">
+										<% cryptoTransactionPages.forEach(function(page) {%>
+											<% if (page === 1) { %> 
+												<li class="page-item active"><a class="page-link" href="#"><%= page %></a></li>
+											<% } %>
+											<% if (page !== 1) { %> 
+												<li class="page-item"><a class="page-link" href="#"><%= page %></a></li>
+											<% } %>
+										<% }); %>
+									</ul>
+								</nav>
+							</div>
+						</div>
+
+					</div>
+					<div class="tab-pane fade" id="list-commission" role="tabpanel" aria-labelledby="list-commission-list">
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Crypto Currency</th>
+									<th scope="col">Commission</th>
+								</tr>
+							</thead>
+							<tbody>
+								<% commissions.forEach(function(commission){ %>
+									<tr>
+										<td><%= commission.cryptoCurrency%></td>
+										<td><input class="commission-input" type="text" data-cryptocurrency="<%= commission.cryptoCurrency%>" value="<%= commission.commission * 100%>"><button class="btn btn-primary" id="commission-save" style="margin-left: 20px;">Save</button></td>
+									</tr>
+								<% }); %>
+							</tbody>
+						</table>
+					</div>
+					<div class="tab-pane fade" id="dispute" role="tabpanel" aria-labelledby="list-profile-list">
+						<div class="container">
+							<h3 class=" text-center">Messaging</h3>
+							<div class="dispute-verdict display-none">
+								<button class="btn btn-success" id="approve">Approve</button>
+								<button class="btn btn-danger" id="cancel">Cancel</button>
+							</div>
+							<div class="messaging">
+										<div class="inbox_msg">
+											<div class="inbox_people">
+												<div class="inbox_chat">
+													<!-- <div class="chat_list active_chat">
+														<div class="chat_people">
+															<div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+															<div class="chat_ib">
+																<h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
+																<p>Test, which is a new approach to have all solutions 
+																	astrology under one roof.</p>
+															</div>
+														</div>
+													</div>
+													<div class="chat_list">
+														<div class="chat_people">
+															<div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+															<div class="chat_ib">
+																<h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
+																<p>Test, which is a new approach to have all solutions 
+																	astrology under one roof.</p>
+															</div>
+														</div>
+													</div> -->
+												</div>
+											</div>
+											<div class="mesgs">
+												<div class="msg_history">
+													<!-- <div class="incoming_msg">
+														<div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+														<div class="received_msg">
+															<div class="received_withd_msg">
+																<p>Test which is a new approach to have all
+																	solutions</p>
+																<span class="time_date"> 11:01 AM    |    June 9</span></div>
+														</div>
+													</div>
+													<div class="outgoing_msg">
+														<div class="sent_msg">
+															<p>Test which is a new approach to have all
+																solutions</p>
+															<span class="time_date"> 11:01 AM    |    June 9</span> </div>
+													</div>
+													<div class="incoming_msg">
+														<div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+														<div class="received_msg">
+															<div class="received_withd_msg">
+																<p>Test, which is a new approach to have</p>
+																<span class="time_date"> 11:01 AM    |    Yesterday</span></div>
+														</div>
+													</div>
+													<div class="outgoing_msg">
+														<div class="sent_msg">
+															<p>Apollo University, Delhi, India Test</p>
+															<span class="time_date"> 11:01 AM    |    Today</span> </div>
+													</div>
+													<div class="incoming_msg">
+														<div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+														<div class="received_msg">
+															<div class="received_withd_msg">
+																<p>We work directly with our designers and suppliers,
+																	and sell direct to you, which means quality, exclusive
+																	products, at a price anyone can afford.</p>
+																<span class="time_date"> 11:01 AM    |    Today</span></div>
+														</div>
+													</div> -->
+												</div>
+												<div class="type_msg">
+													<div class="input_msg_write">
+														<textarea type="text" class="write_msg" id="message-input" placeholder="Type a message" /></textarea>
+														<button class="msg_send_btn" type="button" id="message-btn"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+													</div>
+												</div>
+											</div>
+										</div>
+					</div>
+					<div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="list-crypto-wallets" role="tabpanel" aria-labelledby="list-crypto-wallets">
+				<div id="list-crypto-wallets__wrapper">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-6">
+								<form class="crypto-wallets btc-form" data-type="BTC">
+									<div class="form-group container justify-content-center" action="/wallets/upload/btc" method="post">
+										<h4>BTC file upload</h4>
+										<input type="file" class="form-control-file" id="exampleFormControlFile1">
+										<button class="btn btn-primary" type="submit" name="submit">Upload BTC File
+									</div>
+								</form>
+							</div>
+							<div class="col-6">
+								<form class="crypto-wallets eth-from" data-type="ETH">
+									<div class="form-group container justify-content-center" action="/wallets/upload/btc" method="post">
+										<h4>ETH file upload</h4>
+										<input type="file" class="form-control-file" id="exampleFormControlFile1">
+										<button class="btn btn-primary" type="submit" name="submit">Upload ETH File
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="list-widthraw" role="tabpanel" aria-labelledby="list-widthraw-list">
+				<div id="list-widthraw__wrapper">
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">Name</th>
+								<th scope="col">Email</th>
+								<th scope="col">Crypto Currency</th>
+								<th scope="col">Free Amount</th>
+								<th scope="col">To Widthraw</th>
+								<th scope="col">Controls</th>
+							</tr>
+						</thead>
+						<tbody>
+						<% widthrawData.forEach(function(widthraw){ %>
+							<tr>
+								<td><%= widthraw.name%></td>
+								<td><%= widthraw.email%></td>
+								<td><%= widthraw.cryptoCurrency%></td>
+								<td><%= widthraw.freeAmount%></td>
+								<td><%= widthraw.widthraw%></td>
+								<td class="transaction-control__wrapper">
+									<button class="btn btn-success" id="confrim-widthraw" data-transactionId=<%= widthraw.id%>>Confirm</button>
+									<button class="btn btn-danger" id="abort-widthraw" data-transactionId=<%= widthraw.id%>>Abort</button>
+								</td>
+							</tr>
+						<% }); %>
+						</tbody>
+					</table>
+					
+				</div>
+				<div id="pagination">
+					<div class="container justify-content-center">
+						<nav aria-label="Page navigation justify-content-center">
+							<ul class="pagination justify-content-center" data-target="list-widthraw" data-url="widthraw-list">
+								<% processingTransactionPages.forEach(function(page) {%>
+									<% if (page === 1) { %> 
+										<li class="page-item active"><a class="page-link" href="#"><%= page %></a></li>
+									<% } %>
+									<% if (page !== 1) { %> 
+										<li class="page-item"><a class="page-link" href="#"><%= page %></a></li>
+									<% } %>
+								<% }); %>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+<!-- Main Footer -->
+<footer class="main-footer">
+	<!-- To the right -->
+	<div class="float-right d-none d-sm-inline">
+		Coin Shop
+	</div>
+	<!-- Default to the left -->
+	All rights reserved.
+</footer>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<!-- Bootstrap 4 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/admin-lte@3.0/dist/js/adminlte.min.js"></script>
+<script>
+	const triggerTabList = [].slice.call(document.querySelectorAll('.list-group-item-action'))
+	triggerTabList.forEach(function (triggerEl) {
+
+		const tabTrigger = new bootstrap.Tab(triggerEl)
+
+		triggerEl.addEventListener('click', function (event) {
+			for (const triggerTab of triggerTabList) {
+				triggerTab.classList.remove('active')
+			}
+			event.preventDefault()
+			tabTrigger.show()
+		})
+	})
+</script>
+<script src="https://cdn.socket.io/3.1.3/socket.io.min.js" integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh" crossorigin="anonymous"></script>
+<script src="./js/chat.js"></script>
+<script src="./js/notifications.js"></script>
+<script src="./js/commission.js"></script>
+<script src="./js/get-users.js"></script>
+<script src="./js/announcement-pagination.js"></script>
+<script src="./js/deals-paginations.js"></script>
+<script src="./js/transaction-paginations.js"></script>
+<script src="./js/crypto-wallet-file-upload.js"></script>
+<script src="./js/transaction-control.js"></script>
+<script src="./js/processing-transaction-pagination.js"></script>
+</body>
+</html>

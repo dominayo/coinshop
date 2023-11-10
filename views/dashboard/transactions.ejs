@@ -1,0 +1,24 @@
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">id</th>
+			<th scope="col">Status</th>
+			<th scope="col">Email</th>
+			<th scope="col">Transaction Type</th>
+			<th scope="col">Crypto Currency</th>
+			<th scope="col">Amount</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% cryptoTransactions.forEach(function(cryptoTransaction){ %>
+			<tr>
+				<td><%= cryptoTransaction._id%></td>
+				<td><%= cryptoTransaction.status%></td>
+				<td><%= cryptoTransaction.email%></td>
+				<td><%= cryptoTransaction.transactionType%></td>
+				<td><%= cryptoTransaction.cryptoCurrency%></td>
+				<td><%= cryptoTransaction.amount%></td>
+			</tr>
+		<% }); %>
+	</tbody>
+</table>

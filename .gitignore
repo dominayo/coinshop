@@ -1,0 +1,81 @@
+# Autodeploy
+###################
+.gitlab-ci.yml
+/.gitlab-ci.yml
+
+/package-lock.json
+package-lock.json
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Compiled output #
+###################
+/dist
+/tmp
+/build
+
+# Dependencies #
+################
+/node_modules
+/bower_components
+
+# Misc #
+########
+/coverage/*
+npm-debug.log
+/.nyc_output
+.idea
+.vscode
+.history
+/swagger/*
+
+config/local\.js
+config/*local.js
+config/development.js
+
+/.serverless
+env.yml
+*.env
+development.ts
+done.txt
+technical-task.txt
+btcW_pub.txt
+addresses.txt
+keyPairs.json
+*.eslintrc.json
+/.eslintrc.json

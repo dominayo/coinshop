@@ -1,0 +1,27 @@
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">Name</th>
+			<th scope="col">Email</th>
+			<th scope="col">Crypto Currency</th>
+			<th scope="col">Free Amount</th>
+			<th scope="col">To Widthraw</th>
+			<th scope="col">Controls</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% widthrawData.forEach(function(widthraw){ %>
+		<tr>
+			<td><%= widthraw.name%></td>
+			<td><%= widthraw.email%></td>
+			<td><%= widthraw.cryptoCurrency%></td>
+			<td><%= widthraw.freeAmount%></td>
+			<td><%= widthraw.widthraw%></td>
+			<td class="transaction-control__wrapper">
+				<button class="btn btn-success" id="confrim-widthraw" data-transactionId=<%= widthraw.id%>>Confirm</button>
+				<button class="btn btn-danger" id="abort-widthraw" data-transactionId=<%= widthraw.id%>>Abort</button>
+			</td>
+		</tr>
+	<% }); %>
+	</tbody>
+</table>

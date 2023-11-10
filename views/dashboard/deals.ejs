@@ -1,0 +1,24 @@
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">status</th>
+			<th scope="col">advertId</th>
+			<th scope="col">amount</th>
+			<th scope="col">owner</th>
+			<th scope="col">customerId</th>
+			<th scope="col">type</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% deals.forEach(function(deal){ %>
+			<tr>
+				<td><%= deal.status%></td>
+				<td><%= deal.advertId%></td>
+				<td><%= deal.amount%></td>
+				<td><%= deal.owner%></td>
+				<td><%= deal.customerId%></td>
+				<td><%= deal.type%></td>
+			</tr>
+		<% }); %>
+	</tbody>
+</table>

@@ -1,0 +1,45 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>WS client example</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+</head>
+
+<body>
+	<script src="https://cdn.socket.io/3.1.3/socket.io.min.js" integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh" crossorigin="anonymous"></script>
+  <script>
+		const token = localStorage.setItem('Bearer', 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGVjMTc3ZjQ3ZDhmMjA0OGNkZTc0MGQiLCJpYXQiOjE2MjYwODUzMjMsImV4cCI6MTYyNjA4ODkyM30.W37xLICw1V_0Y0VVyu-10_fbCyXvBbQRtNZBCpFj72ojI8YYTdhf_cFiiUKi9oHUQMfbg0qtJrt1QHM4MLGLiA');
+		// const originUrl = 'localhost:3002';
+		const originUrl = window.location.protocol + '//ws.' + window.location.host.substring(5, window.location.host.length);
+		// const originUrl = 'http://ws.coinshop.dev-page.site/'
+		console.log(originUrl)
+		const socket = io(originUrl, {
+  		// autoConnect: false,
+			// query: {
+			// 	token: localStorage.getItem('Bearer')
+			// },
+			auth: {
+				token: localStorage.getItem('Bearer')
+			}
+		});
+
+		socket.once("connect", (client) => {
+			socket.on('chat', (message) => {
+				console.log(message);
+			});
+		});
+
+		socket.once("connect", (client) => {
+			socket.onAny((payload) => {
+				console.log(payload);
+			});
+		});
+		socket.emit('6065f2c3ea2cd539950f3cdb', { message: 'Hello, money not recieved' });
+	</script>
+</body>
+</html>
+

@@ -1,0 +1,32 @@
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">Email</th>
+			<th scope="col">Type</th>
+			<th scope="col">Сrypto Currency</th>
+			<th scope="col">Direction</th>
+			<th scope="col">Fixed Rate</th>
+			<th scope="col">Exchange Rates</th>
+			<th scope="col">Spread</th>
+			<th scope="col">Min Limit</th>
+			<th scope="col">Max Limit</th>
+			<th scope="col">Comments</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% adverts.forEach(function(advert){ %>
+			<tr>
+				<td><%= advert.email%></td>
+				<td><%= advert.type%></td>
+				<td><%= advert.cryptoCurrency%></td>
+				<td><%= advert.direction%></td>
+				<td><%= advert.isFixedRate%></td>
+				<td><%= advert.exchangeRate%></td>
+				<td><%= advert.spread%></td>
+				<td><%= advert.minLimit%></td>
+				<td><%= advert.maxLimit%></td>
+				<td><%= advert.comments%></td>
+			</tr>
+		<% }); %>
+	</tbody>
+</table>
